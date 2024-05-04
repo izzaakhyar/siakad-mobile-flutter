@@ -42,3 +42,7 @@ SIM UNTAG Surabaya Mobile is an application for the UNTAG Surabaya Student Infor
 * None for now.  #
 
 **(If you have any plans for future updates or improvements to the project, you can briefly mention them here. This can give users a sense of the project's ongoing development and encourage them to stay interested.)**
+
+**Download**
+
+The latest version of the app can be downloaded from the GitHub Releases section: [Download APK](https://github.com/izzaakhyar/siakad-mobile-flutter/releases/download/v1.0.0/app-release.apk)
