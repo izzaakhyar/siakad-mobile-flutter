@@ -2,7 +2,7 @@
 
 **Description**
 
-SIM UNTAG Surabaya Mobile is a mobile application designed to provide easy access to your personal student information, schedule, and course grades at Universitas 17 Agustus 1945 Surabaya (UNTAG Surabaya). This app was developed as a requirement for a mobile application development course.
+SIM UNTAG Surabaya Mobile is an application for the UNTAG Surabaya Student Information System designed to store my personal profile data, schedule, and course grades. This app was created as a requirement for the practical exam in the mobile application development course.
 
 **Tools and Technologies Used**
 
