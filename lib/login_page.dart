@@ -75,13 +75,11 @@ class _LoginScreenState extends State<LoginScreen> {
           TextField(
             controller: _usernameController,
             style: const TextStyle(color: Colors.white),
-            // Set font color to white
             decoration: InputDecoration(
               filled: true,
               fillColor: Colors.white.withOpacity(0.6),
               labelText: 'Username',
               labelStyle: const TextStyle(color: Colors.white),
-              // Set label color to white
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(12.0),
                 borderSide: BorderSide.none,
@@ -93,13 +91,11 @@ class _LoginScreenState extends State<LoginScreen> {
             controller: _passwordController,
             obscureText: true,
             style: const TextStyle(color: Colors.white),
-            // Set font color to white
             decoration: InputDecoration(
               filled: true,
               fillColor: Colors.white.withOpacity(0.6),
               labelText: 'Password',
               labelStyle: const TextStyle(color: Colors.white),
-              // Set label color to white
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(12.0),
                 borderSide: BorderSide.none,
@@ -109,11 +105,11 @@ class _LoginScreenState extends State<LoginScreen> {
           const SizedBox(height: 24.0),
           ElevatedButton(
             onPressed: () {
-              // Place authentication logic here
+              // Authentication logic
               String username = _usernameController.text;
               String password = _passwordController.text;
 
-              // Example simple authentication logic
+              // Simple authentication logic
               if (data.isNotEmpty &&
                   username == '${data[0][0]}' &&
                   password == '${data[0][1]}') {
@@ -128,11 +124,10 @@ class _LoginScreenState extends State<LoginScreen> {
               }
             },
             style: ElevatedButton.styleFrom(
-              //backgroundColor: Colors.lightGreen,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(20),
               ),
-              minimumSize: Size(600, 50),
+              minimumSize: const Size(600, 50),
             ),
             child: const Padding(
               padding: EdgeInsets.symmetric(vertical: 12.0),

@@ -3,19 +3,23 @@ import 'package:flutter/services.dart';
 import 'package:csv/csv.dart';
 
 void main() {
-  runApp(NilaiMatkul());
+  runApp(const NilaiMatkul());
 }
 
 class NilaiMatkul extends StatelessWidget {
+  const NilaiMatkul({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       home: NilaiMatkulPage(),
     );
   }
 }
 
 class NilaiMatkulPage extends StatefulWidget {
+  const NilaiMatkulPage({super.key});
+
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
@@ -41,7 +45,7 @@ class _MyHomePageState extends State<NilaiMatkulPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: data.isEmpty
-          ? Center(
+          ? const Center(
         child: CircularProgressIndicator(),
       )
           : ListView.builder(
@@ -50,14 +54,12 @@ class _MyHomePageState extends State<NilaiMatkulPage> {
           List<dynamic> row = data[index];
 
           return Container(
-            height: 100.0, // Sesuaikan tinggi container sesuai kebutuhan
-            padding: EdgeInsets.all(8.0),
-            margin: EdgeInsets.symmetric(vertical: 4.0),
+            height: 100.0,
+            padding: const EdgeInsets.all(8.0),
+            margin: const EdgeInsets.symmetric(vertical: 4.0),
             decoration: BoxDecoration(
-              //border: Border.all(color: Colors.grey),
                 borderRadius: BorderRadius.circular(8.0),
-                color: Color(0xFF122E4C)
-              //0xFF122E4C
+                color: const Color(0xFF122E4C)
             ),
             child: Row(
               children: [
@@ -69,26 +71,26 @@ class _MyHomePageState extends State<NilaiMatkulPage> {
                   flex: 1,
                   child: Text(
                     '${row[0]}', // Matakuliah
-                    style: TextStyle(
+                    style: const TextStyle(
                         fontWeight: FontWeight.bold,
                         color: Colors.white
                     ),
                   ),
                 ),
-                SizedBox(width: 15.0,),
+                const SizedBox(width: 15.0,),
                 Expanded(
                   flex: 1,
                   child: Text(
                     '${row[1]}',
-                    style: TextStyle(color: Colors.white),
-                  ), // Ruang
+                    style: const TextStyle(color: Colors.white),
+                  ),
                 ),
                 Expanded(
                   flex: 1,
                   child: Text(
                     'Nilai huruf: ${row[2]} Nilai angka: ${row[3]}',
-                    style: TextStyle(color: Colors.white),
-                  ), // Ruan // Jadwal
+                    style: const TextStyle(color: Colors.white),
+                  ),
                 ),
               ],
             ),

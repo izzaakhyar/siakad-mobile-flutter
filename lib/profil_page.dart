@@ -1,19 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'dart:ui';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:url_launcher/src/url_launcher_uri.dart';
 import 'package:csv/csv.dart';
 
 void main() {
-  runApp(ProfilPage());
+  runApp(const ProfilPage());
 }
 
 class ProfilPage extends StatelessWidget {
+  const ProfilPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(scaffoldBackgroundColor: Color(0xff1F2648)),
-      home: Scaffold(
+      theme: ThemeData(scaffoldBackgroundColor: const Color(0xff1F2648)),
+      home: const Scaffold(
         body: SingleChildScrollView(child: ProfilePage(),),
       ),
       debugShowCheckedModeBanner: false,
@@ -22,6 +24,8 @@ class ProfilPage extends StatelessWidget {
 }
 
 class ProfilePage extends StatefulWidget {
+  const ProfilePage({super.key});
+
   @override
   _ProfilScreen createState() => _ProfilScreen();
 }
@@ -62,12 +66,11 @@ class _ProfilScreen extends State<ProfilePage> {
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
-        Container(
+        SizedBox(
           width: double.infinity,
           height: 280.0,
           child: Stack(
             children: [
-              // Background with blur effect
               Container(
                 width: double.infinity,
                 height: double.infinity,
@@ -88,7 +91,7 @@ class _ProfilScreen extends State<ProfilePage> {
                       radius: 84.0,
                       backgroundImage: AssetImage('assets/images/profile-img.png'),
                     ),
-                    SizedBox(height: 15.0), // Adjust the spacing between avatar and text
+                    SizedBox(height: 15.0),
                     Text(
                       'Moh. Izza Akhyar Rafiussani',
                       style: TextStyle(
@@ -112,18 +115,18 @@ class _ProfilScreen extends State<ProfilePage> {
             ],
           ),
         ),
-        SizedBox(height: 5.0),
+        const SizedBox(height: 5.0),
 
         ListView.builder(
           shrinkWrap: true,
-          physics: NeverScrollableScrollPhysics(),
+          physics: const NeverScrollableScrollPhysics(),
           itemCount: profiles.length,
           itemBuilder: (context, index) {
             return buildProfile(context, profiles[index]);
           },
         ),
 
-        SizedBox(height: 70.0,),
+        const SizedBox(height: 70.0,),
         Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -131,12 +134,12 @@ class _ProfilScreen extends State<ProfilePage> {
                   onTap: () => _launchInstagram(),
                   child: Image.asset('assets/images/instagram.png', width: 35, height: 35,)
               ),
-              SizedBox(width: 15,),
+              const SizedBox(width: 15,),
               InkWell(
                   onTap: () => _launchGithub(),
                   child: Image.asset('assets/images/github.png', width: 35, height: 35)
               ),
-              SizedBox(width: 15,),
+              const SizedBox(width: 15,),
               InkWell(
                   onTap: () => _launchLinkedin(),
                   child: Image.asset('assets/images/linkedin.png', width: 35, height: 35)
@@ -148,21 +151,20 @@ class _ProfilScreen extends State<ProfilePage> {
   }
 
   Widget buildProfile(BuildContext context, Profile profile) {
-    // Fixed values for styling
     const double fixedWidth = 50.0;
     const double fixedFontSize = 20.0;
 
     if (profile.label != 'Sosial Media') {
       return Row(
         children: [
-          SizedBox(width: fixedWidth),
+          const SizedBox(width: fixedWidth),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const SizedBox(height: 15.0),
               Text(
                 profile.label,
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: fixedFontSize,
                   fontFamily: 'Poppins',
                   color: Color(0xff858CB6),
@@ -170,7 +172,7 @@ class _ProfilScreen extends State<ProfilePage> {
               ),
               Text(
                 profile.value,
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: fixedFontSize,
                   fontFamily: 'Poppins',
                   color: Color(0xfff1eeee),
@@ -181,17 +183,16 @@ class _ProfilScreen extends State<ProfilePage> {
         ],
       );
     } else {
-      return SizedBox(
+      return const SizedBox(
         width: 0.0,
         child: Column(
-          //crossAxisAlignment: CrossAxisAlignment.start,
 
         ),
       );
     }
   }
 
-  // Function to launch Instagram when the text is tapped
+  // Function to launch Instagram when the image icon is tapped
   Future<void> _launchInstagram() async {
     const url = 'https://www.instagram.com/izzaarr_/';
     if (await canLaunchUrl(url as Uri)) {
@@ -201,6 +202,7 @@ class _ProfilScreen extends State<ProfilePage> {
     }
   }
 
+  // Function to launch GitHub when the image icon is tapped
   Future<void> _launchGithub() async {
     const url = 'https://github.com/izzaakhyar';
     if (await canLaunchUrl(url as Uri)) {
@@ -210,8 +212,9 @@ class _ProfilScreen extends State<ProfilePage> {
     }
   }
 
+  // Function to launch LinkedIn when the image icon is tapped
   Future<void> _launchLinkedin() async {
-    const url = 'https://www.linkedin.com/in/moh-izza-akhyar-rafiussani-45a1782a2/';
+    const url = 'https://www.linkedin.com/in/moh-izza-akhyar-rafiussani-b00b112b4/';
     if (await canLaunchUrl(url as Uri)) {
       await launchUrl(url as Uri);
     } else {

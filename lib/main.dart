@@ -1,48 +1,5 @@
-// import 'package:flutter/material.dart';
-//
-// import 'get_data.dart';
-//
-// void main() {
-//   runApp(MyApp());
-// }
-//
-// class MyApp extends StatelessWidget {
-//   @override
-//   Widget build(BuildContext context) {
-//     return MaterialApp(
-//       home: Scaffold(
-//         appBar: AppBar(
-//           title: Text('MySQL Flutter App'),
-//         ),
-//         body: FutureBuilder(
-//           future: UserRepository.getUsers(),
-//           builder: (context, AsyncSnapshot<List<User>> snapshot) {
-//             if (snapshot.connectionState == ConnectionState.waiting) {
-//               return CircularProgressIndicator();
-//             } else if (snapshot.hasError) {
-//               return Text('Error: ${snapshot.error}');
-//             } else {
-//               final users = snapshot.data;
-//               return ListView.builder(
-//                 itemCount: users?.length ?? 0,
-//                 itemBuilder: (context, index) {
-//                   final user = users![index];
-//                   return ListTile(
-//                     title: Text('Username: ${user.username}'),
-//                     subtitle: Text('Email: ${user.email}'),
-//                   );
-//                 },
-//               );
-//             }
-//           },
-//         ),
-//       ),
-//     );
-//   }
-// }
-
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:praktikumdosbim/nilai_page.dart';
 import 'beranda.dart';
 import 'jadwal_kuliah.dart';
@@ -50,25 +7,26 @@ import 'login_page.dart';
 import 'profil_page.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
-        primarySwatch: createMaterialColor(Color(0xFF181e38)), // Set the primary color to red
-        scaffoldBackgroundColor: Color(0xff1F2648),
-        //0xff6c60ff // Set the background color to a shade of red
+        primarySwatch: createMaterialColor(const Color(0xFF181e38)),
+        scaffoldBackgroundColor: const Color(0xff1F2648),
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      initialRoute: '/login', // Tentukan halaman awal
+      initialRoute: '/login',
       routes: {
-        '/login': (context) => LoginPage(),
-        '/beranda': (context) => MyHomePage(),
+        '/login': (context) => const LoginPage(),
+        '/beranda': (context) => const MyHomePage(),
       },
-      home: MyHomePage(),
+      home: const MyHomePage(),
       debugShowCheckedModeBanner: false,
     );
   }
@@ -87,6 +45,8 @@ MaterialColor createMaterialColor(Color color) {
 }
 
 class MyHomePage extends StatefulWidget {
+  const MyHomePage({super.key});
+
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
@@ -96,13 +56,13 @@ class _MyHomePageState extends State<MyHomePage> {
 
   final List<Widget> _pages = [
     // Halaman 1: Beranda
-    BerandaPage(),
-    // Halaman 2: Pencarian
-    Center(
+    const BerandaPage(),
+    // Halaman 2: Nilai Mata Kuliah
+    const Center(
       child: NilaiMatkulPage(),
     ),
     // Halaman 3: Profil
-    Center(
+    const Center(
       child: ProfilPage()
     ),
   ];
@@ -113,20 +73,19 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Row(
           children: [
-            SizedBox(width: 0.0,),
+            const SizedBox(width: 0.0,),
             IconButton(
-              icon: Image.asset('assets/images/untag-sby.png'), // Replace with the path to your logo image
+              icon: Image.asset('assets/images/untag-sby.png'),
               onPressed: () {
-                // Add any functionality when the logo is pressed
+
               },
             ),
-            SizedBox(width: 8.0,),
-            Text('Sistem Informasi Akademik'),
+            const SizedBox(width: 8.0,),
+            const Text('Sistem Informasi Akademik'),
           ],
         ),
-        //backgroundColor: Color(0xFFFFAA05),
         automaticallyImplyLeading: false,
-        toolbarHeight: 60.0, // Sesuaikan tinggi toolbar sesuai kebutuhan
+        toolbarHeight: 60.0,
       ),
       body: _pages[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
@@ -136,7 +95,7 @@ class _MyHomePageState extends State<MyHomePage> {
             _currentIndex = index;
           });
         },
-        items: [
+        items: const [
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: 'Beranda',
@@ -156,34 +115,37 @@ class _MyHomePageState extends State<MyHomePage> {
 }
 
 class BerandaPage extends StatelessWidget {
+  const BerandaPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
       length: 3, // Jumlah tab
       child: Scaffold(
         appBar: AppBar(
-          title: null, // Hapus title
-          toolbarHeight: 0.0, // Sesuaikan tinggi toolbar sesuai kebutuhan
+          title: null,
+          toolbarHeight: 0.0,
           bottom: TabBar(
-            tabs: [
+            tabs: const [
               Tab(text: 'Matakuliah Semester Ini'),
               Tab(text: 'Jadwal Kuliah'),
-              //Tab(text: 'Tab 3'),
             ],
             onTap: (index) {
               // Aksi yang dijalankan saat tab dipilih
-              print('Tab $index dipilih');
+              if (kDebugMode) {
+                print('Tab $index dipilih');
+              }
             },
           ),
         ),
 
-        body: TabBarView(
+        body: const TabBarView(
           children: [
-            // Konten untuk Tab 1
+            // Konten untuk Tab Mata Kuliah yang diambil
             Center(
               child: MatkulPage(),
             ),
-            // Konten untuk Tab 2
+            // Konten untuk Tab Jadwal Kuliah
             Center(
               child: JadwalKuliahPage(),
             ),

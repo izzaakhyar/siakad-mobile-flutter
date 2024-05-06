@@ -55,25 +55,24 @@ class _MyHomePageState extends State<JadwalKuliahPage> {
 
                 return Container(
                   height: 100.0,
-                  // Sesuaikan tinggi container sesuai kebutuhan
-                  padding: EdgeInsets.all(8.0),
-                  margin: EdgeInsets.symmetric(vertical: 4.0),
+                  padding: const EdgeInsets.all(8.0),
+                  margin: const EdgeInsets.symmetric(vertical: 4.0),
                   decoration: BoxDecoration(
-                      //border: Border.all(color: Colors.grey),
                       borderRadius: BorderRadius.circular(8.0),
-                      color: Color(0xFF0F2A44)
-                      //0xFF122E4C
-                      ),
+                      color: const Color(0xFF0F2A44)
+                  ),
                   child: Row(
                     children: [
                       Expanded(
                           flex: 1,
                           child: Image(
-                              image: AssetImage('assets/images/${row[3]}'))),
+                              image: AssetImage('assets/images/${row[3]}')
+                          )
+                      ),
                       Expanded(
                         flex: 1,
                         child: Text(
-                          '${row[0]}', // Matakuliah
+                          '${ row[0] }', // Matakuliah
                           style: const TextStyle(
                               fontWeight: FontWeight.bold, color: Colors.white),
                         ),
@@ -84,15 +83,15 @@ class _MyHomePageState extends State<JadwalKuliahPage> {
                       Expanded(
                         flex: 1,
                         child: Text(
-                          '${row[1]}',
-                          style: TextStyle(color: Colors.white),
+                          '${ row[1] }',
+                          style: const TextStyle(color: Colors.white),
                         ), // Ruang
                       ),
                       Expanded(
                         flex: 1,
                         child: Text(
-                          '${row[2]}',
-                          style: TextStyle(color: Colors.white),
+                          '${ row[2] }',
+                          style: const TextStyle(color: Colors.white),
                         ), // Ruan // Jadwal
                       ),
                     ],

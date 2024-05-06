@@ -3,19 +3,23 @@ import 'package:flutter/services.dart';
 import 'package:csv/csv.dart';
 
 void main() {
-  runApp(Matkul());
+  runApp(const Matkul());
 }
 
 class Matkul extends StatelessWidget {
+  const Matkul({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       home: MatkulPage(),
     );
   }
 }
 
 class MatkulPage extends StatefulWidget {
+  const MatkulPage({super.key});
+
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
@@ -42,7 +46,7 @@ class _MyHomePageState extends State<MatkulPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: data.isEmpty
-          ? CircularProgressIndicator()
+          ? const CircularProgressIndicator()
           : DataTable(
               columns: const <DataColumn>[
                 DataColumn(
@@ -67,7 +71,7 @@ class _MyHomePageState extends State<MatkulPage> {
                           .map(
                             (cell) => DataCell(
                               Text('$cell',
-                                  style: TextStyle(color: Colors.white)),
+                                  style: const TextStyle(color: Colors.white)),
                             ),
                           )
                           .toList(),
