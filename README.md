@@ -21,27 +21,19 @@ SIM UNTAG Surabaya Mobile is an application for the UNTAG Surabaya Student Infor
 
 **Installation and Setup**
 
-**(Leave this section blank for now. Fill it in later with clear instructions on how to install and set up the project on a user's device.)**
+Soon to be added
 
 **Usage**
 
-**(Provide a detailed explanation of how to use the app. This could include screenshots or a short video walkthrough that demonstrates navigating the app's features and functionalities. Here are some potential areas to cover:
-
-* Logging in (if applicable)
-* Accessing and viewing personal profile information
-* Viewing class schedules
-* Checking course grades
-* Any other functionalities offered by the app)**
+Soon to be added
 
 **Project Demo**
 
-* Link to your video recording showcasing the project's functionalities: link_to_your_video_here
+Soon to be added
 
 **Update Plan**
 
 * None for now.  #
-
-**(If you have any plans for future updates or improvements to the project, you can briefly mention them here. This can give users a sense of the project's ongoing development and encourage them to stay interested.)**
 
 **Download**
 
